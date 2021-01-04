@@ -1,0 +1,26 @@
+<!-- EJS includes header file -->
+<%- include("header") -%>
+
+<div class="box" id="heading">
+  <h1> <%= listTitle %> </h1>
+</div>
+
+<div class="box">
+  <% for (let i=0; i<newItems.length; i++) { %>
+  <div class="item">
+    <input type="checkbox">
+    <p><%= newItems[i] %></p>
+  </div>
+  <% } %>
+
+  <!-- is for home route. Post info to server, at the home route -->
+  <form class="item" action="/" method="post">
+    <!-- <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up!</button> -->
+    <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+    <button type="submit" name="list" value=<%= listTitle %>>+</button>
+
+  </form>
+</div>
+
+<!-- EJS includes footer file -->
+<%- include("footer") -%>

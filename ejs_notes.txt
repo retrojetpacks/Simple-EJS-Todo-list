@@ -1,0 +1,49 @@
+EJS
+Embedded javascript
+Allows for dynamic insertion of html into ejs html templates. Saves having to write the same template 1 million times etc
+
+Need a folders called views
+Inside this, setup html file as normal, but with extension .ejs
+
+Inside .js file, using with express
+app.set('view engine', 'ejs');
+
+Example
+app.js
+res.render("list", {kindOfDay: day});
+inject custom html from js file
+
+list.ejs
+<%=kinfOfDay %>;   .js 
+Tag for indicating where ejs will inject html
+
+
+Example 2
+<%%>
+Use custom js in lists.ejs file. Need new tag for EVERY LINE
+
+res.redirect("/");
+redirects post to home route
+
+
+
+Layouts/partials
+Keep header/footer constant, ejs change the content
+<%- include("header") -%>
+<%- include("footer") -%>
+include ALL html including and above <body> in header.ejs,
+ALL html incuding and below <footer> in footer.ejs
+
+
+Modules
+const date = require(__dirname + "/date.js"); //My custom date module
+include a modules call date.js
+
+Inside date.js -> module.exports.getDate = getDate;
+Exports the function getDate from date.js as a member of the module import object
+
+Easier export, define function as export member immediately
+exports.getDay = function() { ....}
+Will then be accessible from an imported module object
+
+
